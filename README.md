@@ -19,7 +19,7 @@ Para reproducirlo en sus computadores es necesario descargar todos los archivos 
 * stringr
 * rebus
 
-_Para instalarlos podemos utilizar el siguiente comando: _ 
+_Para instalarlos podemos utilizar el siguiente comando:_ 
 
 `install.packages("shiny","shinydashboard","dplyr","highcharter",
 "shinycssloaders","readxl","leaflet","plotly","stringr","rebus")`
