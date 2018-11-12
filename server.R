@@ -234,6 +234,8 @@ shinyServer(function(input, output, session) {
     colores <- c(rep('#FFCCCC', 32))
     
     colores[which(as.numeric(j) == Edu$CVE_EDO)] <- '#FF6666'
+    Edu$x
+    
     colores
     rezago <- plot_ly(Edu, x =Edu$x, y =Edu$Educacion, type = 'bar', 
                       marker = list(color = colores),
@@ -425,8 +427,6 @@ shinyServer(function(input, output, session) {
     p
   })
   
-  
-  
   output$cluster <- renderImage({
     anyo <<- input$Anios_graficas
     print(anyo)
@@ -435,12 +435,33 @@ shinyServer(function(input, output, session) {
          height = 450
     )}, deleteFile = FALSE)
   
-  output$DT1 <- DT::renderDT({
-    DT::datatable(D[c(1:9,23)], options = list(
-      language = list(url = '//cdn.datatables.net/plug-ins/1.10.11/i18n/Spanish.json'),
-      pageLength = 10
-    ))
-  })
+  output$clusterII <- renderImage({
+    if (input$sPeriodo == "1990 a 2017"){
+      src1 <- "www/mapas_png/clus_1990_2017.png"
+    } else if (input$sPeriodo == "1990 a 2004") {
+      src1 <- "www/mapas_png/clus_1990_2004.png"
+    } else if (input$sPeriodo == "2004 a 2017") {
+      src1 <- "www/mapas_png/clus_2004_2017.png"
+    }
+    
+    print(anyo)
+    list(src = src1,
+         contentType = 'image/png',
+         height = 420
+    )}, deleteFile = FALSE)
+  
+  
+  
+  
+  # output$cluster_periodo <- renderImage({
+  #   anyo <<- input$Anios_graficas
+  #   print(anyo)
+  #   list(src = paste0("www/mapas_png/clus_", as.character(anyo), ".png"),
+  #        contentType = 'image/png',
+  #        height = 450
+  #   )}, deleteFile = FALSE)
+  # 
+  # 
   
   # Objetos Hoja Estatal 
   

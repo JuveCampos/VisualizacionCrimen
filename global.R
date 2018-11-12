@@ -9,7 +9,6 @@ library(shinycssloaders)
 library(readxl)
 library(leaflet)
 library(plotly)
-library(readxl)
 
 # Bases de Datos
 D <- read.csv("www/Bases/Delitos_Municipal.csv", encoding = "UTF-8") 
@@ -52,11 +51,7 @@ Todos_estados <- levels(as.factor(D$Entidad))
 ############
 ### MAPA ###
 ###########
-edos <- sf::st_read("www/Sin Islas/sin_islas.shp")
-# plot(edos)
-# leaflet(edos) %>%
-#   addPolygons()
-
+edos <- sf::st_read("www/Sin\ Islas/sin_islas.shp")
 
 ## PAAAAAARCHEZOTOTOTOTE ##
 edos$CVE_EDO <- c("01", "02", "03", "04", "08", "09", "05", "06", "07", as.character(10:32))
@@ -137,7 +132,7 @@ Macro <- read_xlsx("www/Bases/Variables_macro.xlsx")
 Macro <- Macro %>%
   mutate(CVE_EDO = rownames(Macro))
 
-Macro$CVE_EDO <- c(1, 2, 3, 4, 7, 5, 6, 8, 9, 10:32)
+Macro$CVE_EDO <- c(1, 2, 3, 4, 7, 5, 6, 8, 9, 10, 15, 11, 12, 13, 14, 16:32)
 
 # Datos para Pobreza
 Pobreza <- Macro[order(Macro$Pobreza),]
