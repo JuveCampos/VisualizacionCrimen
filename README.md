@@ -2,7 +2,7 @@
 
 ## Proyecto de Visualización de Econometría Aplicada.
 
-**Autores: ** Carlos Alba y Susana Almeida.
+**Autores:** Carlos Alba y Susana Almeida.
 
 El presente proyecto de visualización muestra información captada sobre la inseguridad de México. 
 
